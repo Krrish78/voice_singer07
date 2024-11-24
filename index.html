@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MayaSuperBot</title>
+    <style>
+        /* CSS styles */
+        body {
+            background: linear-gradient(to bottom, #000000, #0d0d0d, #1a1a1a, #262626, #333333);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .robot-name {
+            font-size: 36px;
+            font-family: 'Verdana', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        #about-creator-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #about-creator-btn:hover {
+            background-color: #555;
+        }
+
+        .model-container {
+            flex-grow: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .model-container iframe {
+            width: 100%;
+            height: 100%;
+            max-width: 850px;
+            border: none;
+        }
+
+        .about-creator-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            color: black;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: left;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="robot-name">MayaSuperBot</h1>
+        <button id="about-creator-btn">About the creator</button>
+    </div>
+
+    <div class="model-container">
+        <iframe
+            src="https://krish778-krish.hf.space"
+            frameborder="0"
+            width="100%"
+            height="100%"
+        ></iframe>
+    </div>
+
+    <div class="about-creator-modal" id="about-creator-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About the creator</h2>
+            <p><strong>Name:</strong> Krish Shrivastava</p>
+            <p><strong>DOB:</strong> 27/04/2005</p>
+            <p><strong>Student:</strong> Undergraduate pursuing Bachelor of Business Administration (BBA)</p>
+            <p>&copy; This robot & website belongs to Krish Shrivastava.</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code
+        // Get modal elements
+        var modal = document.getElementById("about-creator-modal");
+        var btn = document.getElementById("about-creator-btn");
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
